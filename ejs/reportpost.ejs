@@ -1,0 +1,69 @@
+<head>
+    <title>Report Post</title>
+    <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico" />
+    <style>
+      body {
+        background: #96ff8c;
+      }
+      p {
+        color: black;
+        font-size: 20px;
+        font-weight: 1000;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: rgb(0, 0, 0);
+        text-align: center;
+      }
+      hr {
+        
+        padding: 10px;
+        background-color: black;
+      }
+      .title {
+            box-shadow: 0 0 10px 10px rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 20px 40px;
+            text-align: left;
+        }
+        .body {
+            box-shadow: 0 0 10px 10px rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 0px 150px;
+            text-align: center;
+            font-weight: 1000px;
+            font-family: arial, bold 11;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    
+    <h1>Report Post</h1>
+    <br>
+    <br>
+    <center>
+        <form action="/post/report" method="post">
+            
+            <input type="text" required class="title" name="title" placeholder="Subject">
+            <br>
+            <br>
+            <input type="text" class="title" required name="id"  placeholder="Post ID">
+            <br><br><br>
+            <h2>More info</h2>
+            <br><br>
+            <textarea type="text"  class="body" name="body"  placeholder="" rows="10" placeholder=""></textarea>
+            <br><br><br>
+            <button type="submit" style="color: black; font-weight: bold; box-shadow: 0px 0px 15px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 20px 50px; background-color: rgb(100, 100, 100);">Submit</button>
+        
+        </form>
+        
+        <br>
+        <br>
+        <hr>
+        <h4 style="color: #000000;">Exit here</h4>
+        <a href="/app">
+            <button style="color: black; font-weight: bold; box-shadow: 0px 0px 15px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 20px 50px; background-color: grey;">Back</button>
+        </a>
+
+    </center>
+  </body>

@@ -1,0 +1,41 @@
+<head>
+    <title>Admin</title>
+    <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico" />
+    <style>
+        body {
+            background: #96ff8c;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <center>
+        <h1 style="color: #000000;">Admin Page</h1>
+        <a href="/">
+            <button
+                style="color: black; font-weight: bold; box-shadow: 0px 0px 15px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 20px 50px; background-color: grey;">Home</button>
+        </a>
+        <br>
+        <br>
+        <br>
+        <h2 style="color: #000000;">Admin Controls</h2>
+        <a href="/password-reset">
+            <button
+                style="color: black; font-weight: bold; box-shadow: 0px 0px 15px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 20px 50px; background-color: rgb(255, 0, 0);">Reset
+                your Password</button>
+        </a>
+        <br>
+        <br>
+        <br>
+        <% if (rank >= 2) { %>
+
+            <a href="/reports">
+                <button
+                    style="color: black; font-weight: bold; box-shadow: 0px 0px 15px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 20px 50px; background-color: rgb(251, 255, 0);">View reports</button>
+            </a>
+
+
+            <% } %>
+    </center>
+</body>

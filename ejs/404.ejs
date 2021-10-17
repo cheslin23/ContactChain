@@ -1,0 +1,21 @@
+<head>
+    <title>Page not found</title>
+    <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico"/>
+    <style>
+        body {
+            background: #96ff8c;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+    <h1 style="color: #000000; font-size: 30px;">Whoops, looks like you ran into a wall! Either you typed the URL wrong, or you don't have access to this page. Maybe try going to the <a href="/">home page</a>.</a></h1>
+    <h1 style="color: #000000;">
+        <% if (typeof code !== "undefined") { %>
+    Error: <%= code %>
+    <% } %>
+    </h1> 
+</center>
+
+</body>

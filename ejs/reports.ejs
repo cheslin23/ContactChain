@@ -1,0 +1,99 @@
+<head>
+    <title>Reports</title>
+    <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico" />
+    <style>
+      body {
+        background: #96ff8c;
+      }
+      p {
+        color: black;
+        font-size: 15px;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: rgb(0, 0, 0);
+      }
+      hr {
+        
+        padding: 10px;
+        background-color: black;
+      }
+      article {
+        border-radius: 15px; background-color: rgb(255, 217, 0);
+      border: 5px solid black;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+  <body>
+    <center>
+      <h1>Reports</h1>
+      <br>
+      <br>
+      <% if(typeof msg !=='undefined' ) { %>
+        <h2 style="color: black">
+            <%= msg %>
+        </h2>
+        <% } %>
+        <br>
+      </center>
+      </a>
+  <br>
+  <br>
+  <hr>
+  <center>
+  
+  <h1>Read the reports</h1>
+  <br>
+  <% for (let i = 0; i < posts.length; i++) { %>
+    <article>
+      <h2><%= posts[i].title %></h2>
+      
+      
+      <hr style="padding: 1px">
+      <br>
+      <article style="border-radius: 7px; border-color: rgb(255, 255, 255);">
+        <p><%= posts[i].body %></p>
+      
+      
+      <p style="float: left; margin-left: 10px;">Report created by: <%= posts[i].author %></p>
+      <p style="float: right; margin-left: 10px;">Post author: <%= posts[i].postauthor %></p>
+      <br>
+      <br>
+      <br>
+    </article>
+    <br>
+    <form action="/reports/resolve" method="post">
+      <input type="hidden" name="postid" value="<%= posts[i].postid %>">
+    <button style="background: transparent; border-width: bold; padding: 5px; float: right; border-color: black;" type="submit">✅</button>
+    </form>
+    <form action="/reports/delete" method="post">
+      <input type="hidden" name="postid" value="<%= posts[i].postid %>">
+    <button style="background: transparent; border-width: bold; padding: 5px; float: right; border-color: black;" type="submit">🗑️</button>
+    </form>
+    <form action="/reports/blacklist" method="post">
+      <input type="hidden" name="postid" value="<%= posts[i].postid %>">
+    <button style="background: transparent; border-width: bold; padding: 5px; float: right; border-color: black;" type="submit">🚫</button>
+    </form><form action="/reports/warn" method="post">
+      <input type="hidden" name="postid" value="<%= posts[i].postid %>">
+    <button style="background: transparent; border-width: bold; padding: 5px; float: right; border-color: black;" type="submit">⚠️</button>
+    </form>
+      <br>
+      <br>
+      </article>
+      <br>
+      <br>
+      
+    
+    
+  <% } %>
+  <br>
+        <br>
+        <hr>
+        <h4 style="color: #000000;">Exit here</h4>
+        <a href="/admin">
+            
+            <button style="color: black; font-weight: bold; box-shadow: 0px 0px 15px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 20px 50px; background-color: grey;">Back</button>
+        </a>
+  </center>
+  </body>

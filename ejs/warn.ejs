@@ -1,0 +1,64 @@
+<head>
+    <title>WARNING</title>
+    <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico"/>
+    <style>
+        body {
+          background: #96ff8c;
+        }
+        p {
+          color: black;
+          font-size: 15px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          color: rgb(0, 0, 0);
+        }
+        hr {
+          
+          padding: 10px;
+          background-color: black;
+        }
+        article {
+          border-radius: 15px; background-color: rgb(255, 217, 0);
+        border: 5px solid black;
+        }
+      </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <center>
+        <h1>Warning</h1>
+        <h2>You have recieved moderation message(s).</h2>
+        <h2>If you continue to break the rules, you will be blacklisted.</h2>
+        <h3>These moderation message(s) are regarding the following posts:</h3>
+        <br>
+        <% for (let i = 0; i < posts.length; i++) { %>
+            <article>
+              <h2><%= posts[i].title %></h2>
+              
+              
+              <hr style="padding: 1px">
+              <br>
+              <article style="border-radius: 7px; border-color: rgb(255, 255, 255);">
+                <p><%= posts[i].body %></p>
+              </article>
+              
+              <p style="float: left; margin-left: 10px;">Post created by: <%= posts[i].author %></p>
+              <p style="float: right; margin-left: 10px;">Post report id: <%= posts[i].postid %></p>
+              <br>
+              <br>
+              <br>
+            </article>
+            <br>
+            <br>
+          <% } %>
+            <br>
+            <br>
+            <br>
+            <form action="/warn" method="post">
+            <button
+            style="color: black; font-weight: bold; box-shadow: 0px 0px 25px 0px #000000; border-radius: 7px; stroke-width: 0px; padding: 10px 20px; background-color: grey;"
+            type="submit">I will not do this again</button>
+    </form>
+    </center>
+    
+</body>
