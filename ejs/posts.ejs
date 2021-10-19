@@ -1,4 +1,6 @@
 <head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5495814268572722"
+     crossorigin="anonymous"></script>
   <title>Posts</title>
   <link rel="shortcut icon" type="image/jpg" href="/static/favicon.ico" />
   <style>
@@ -53,7 +55,20 @@
 
 <h1>Read the posts</h1>
 <br>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5495814268572722"
+     crossorigin="anonymous"></script>
+<!-- posts -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5495814268572722"
+     data-ad-slot="8203812209"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <% for (let i = 0; i < posts.length; i++) { %>
+  
   <article>
     <h2><%= posts[i].title %></h2>
     
@@ -71,6 +86,20 @@
     <br>
   </article>
   <br>
+  <% if (i % 5 == 0 && i !== 0) { %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5495814268572722"
+     crossorigin="anonymous"></script>
+<!-- posts -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5495814268572722"
+     data-ad-slot="8203812209"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<% } %> 
   <br>
 <% } %>
 <br>
