@@ -11,6 +11,50 @@
             box-shadow: 0 0 10px 10px rgb(0, 0, 0);
             
         }
+        span {
+            z-index: 6;
+            position: absolute;
+  font-size: 20px;
+  font-weight: 25px;
+  top: 10px;
+  left: 71px;
+  color: #000000;
+        }
+        .social {
+            text-decoration: none;
+            border-radius: 15px;
+        }
+        .social:hover {
+            color:rgb(255, 255, 255);
+            opacity: 1;
+            box-shadow: 0 0 5px 5px rgb(238, 255, 0);
+            
+        }
+        .social:active {
+            background-color: rgb(204, 1, 1)
+        }
+        .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+        .google {
+            opacity: .9;
+            z-index: 5;
+            position: relative;
+            background-color: rgb(248, 0, 0);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 35px;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            text-shadow: 0 0 5px 5px white;
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -28,8 +72,22 @@
         <br>
         <br>
         <br>
+        <h3 style="color: black">Please login. If you don't have an account, please <a href="/signup">sign up</a>!</h3>
+            
+        <br>
+        <br>
+        <a class="google social noselect" href="/social/google">
+            <img width="25px" style="margin-bottom: -4px; margin-right: 5px;" alt="Google sign-in" src="https://www.pngfind.com/pngs/b/34-344426_google-icon-png.png" />
+
+            
+            Login with google
+            <span>Login with google</span>
+        </a>
+
+        <br>
+        <br>
+        <h2 style="color: black; font-weight: bold;">Or</h2>
         <form method="post" action="/login">
-            <h3 style="color: black">Please login. If you don't have an account, please <a href="/signup">sign up</a>!</h3>
             <input class="login" required placeholder="Username" type="username" name="username">
             <br>
             <br>

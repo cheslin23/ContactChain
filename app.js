@@ -8,10 +8,12 @@ var crypto = require('crypto');
 function toLowerCase(txt) {
     return txt.toLowerCase();
 }
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { readSync } = require('fs');
+const passport = require('passport');
 function createHash(text) {
     const hash = crypto.createHash('sha256');
     return hash.update(text).digest("hex")
@@ -358,12 +360,13 @@ app.post("/reports/warn", async (req, res) => {
         res.redirect('/warn')
         return
     }
-    const msg = await Report.find({ postid: req.body.postid })
+    const msg = await Post.find({ postid: req.body.postid })
     if (!msg[0]) {
         res.redirect("/reports")
         return
     }
-    const newUser = await User.find({ username: msg[0].postauthor })
+    console.dir(msg[0])
+    const newUser = await User.find({ username: msg[0].author })
     if (!newUser[0]) {
         res.redirect("/reports")
         return
@@ -372,8 +375,7 @@ app.post("/reports/warn", async (req, res) => {
         title: msg[0].title,
         body: msg[0].body,
         author: msg[0].author,
-        postid: msg[0].postid,
-        postauthor: msg[0].postauthor
+        postid: msg[0].postid
     }
     const warn = newUser[0].warn
     
@@ -595,6 +597,25 @@ app.post('/post/create', async (req, res) => {
 
     res.redirect("/app")
 })
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:8080/auth/google"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    
+  }
+));
+
+app.get('/social/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+
+  app.get('/auth/google/', 
+  passport.authenticate('google', { failureRedirect: '/login' }), function (req, res){
+    console.dir(req)
+  })
 // ALWAYS LAST
 
 app.use(function (err, req, res, next) {
